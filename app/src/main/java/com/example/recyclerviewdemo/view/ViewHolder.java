@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.recyclerviewdemo.Model.Note;
 import com.example.recyclerviewdemo.NoteActivity;
 import com.example.recyclerviewdemo.R;
 import com.example.recyclerviewdemo.storage.NoteStorage;
@@ -56,11 +57,14 @@ public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickL
     @Override
     public void onClick(View v) {
         TextView clickedName=v.findViewById(R.id.textView1);
+        Note note = NoteStorage.getNote(getAdapterPosition());
 
         Toast.makeText(v.getContext(),clickedName.getText().toString(),Toast.LENGTH_LONG).show();
         Intent intent = new Intent(v.getContext(), NoteActivity.class);
         intent.putExtra("SendedData",clickedName.getText().toString());
+        intent.putExtra("SendedData2",note.getDescription());
         v.getContext().startActivity(intent);
+
     }
 
 

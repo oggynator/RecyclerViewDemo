@@ -15,10 +15,12 @@ public class NoteStorage {
         list.add(new Note("Breaking news", "You just got clickbaited fam"));
         list.add(new Note("Headline", "description"));
 
+
     }
     public static Note getNote(int index){
         return list.get(index);
     }
+
 
     public static int getLength(){
         return list.size();
