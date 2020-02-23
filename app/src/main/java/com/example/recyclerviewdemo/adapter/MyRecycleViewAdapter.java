@@ -1,5 +1,6 @@
 package com.example.recyclerviewdemo.adapter;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.recyclerviewdemo.NoteActivity;
 import com.example.recyclerviewdemo.R;
 import com.example.recyclerviewdemo.storage.NoteStorage;
 import com.example.recyclerviewdemo.view.ViewHolder;
@@ -18,7 +20,7 @@ import com.example.recyclerviewdemo.view.ViewHolder;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class MyRecycleViewAdapter extends RecyclerView.Adapter<ViewHolder> implements View.OnClickListener{
+public class MyRecycleViewAdapter extends RecyclerView.Adapter<ViewHolder> {
 
 
 
@@ -31,7 +33,6 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<ViewHolder> imple
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LinearLayout ll = (LinearLayout ) LayoutInflater.
                 from(parent.getContext()).inflate(R.layout.customrow, parent, false);
-        ll.setOnClickListener(this);
         return new ViewHolder(ll);
     }
 
@@ -49,10 +50,5 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<ViewHolder> imple
         return NoteStorage.getLength();
     }
 
-    @Override
-    public void onClick(View v) {
-        TextView clickedName=v.findViewById(R.id.textView1);
-        Toast.makeText(v.getContext(),clickedName.getText().toString(),Toast.LENGTH_LONG).show();
 
-    }
 }

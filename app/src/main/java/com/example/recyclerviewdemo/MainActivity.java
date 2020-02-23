@@ -4,15 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
+import com.example.recyclerviewdemo.Model.Note;
 import com.example.recyclerviewdemo.adapter.MyRecycleViewAdapter;
+import com.example.recyclerviewdemo.storage.NoteStorage;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new MyRecycleViewAdapter());
 
+    }
+
+    public void newNote (View view){
+        Intent intent = new Intent(this, AddActivity.class);
+        startActivity(intent);
     }
 
 }

@@ -1,28 +1,32 @@
 package com.example.recyclerviewdemo.view;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.recyclerviewdemo.NoteActivity;
 import com.example.recyclerviewdemo.R;
 import com.example.recyclerviewdemo.storage.NoteStorage;
 
-public class ViewHolder extends RecyclerView.ViewHolder {
+public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public  TextView textView;
     public ImageView imageView;
     public int rowNumber= -1;
-    public Button button;
+
 
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
         LinearLayout  linearLayout= (LinearLayout) itemView;
         textView=linearLayout.findViewById(R.id.textView1);
         imageView = linearLayout.findViewById(R.id.imageView);
+        linearLayout.setOnClickListener(this);
 
     }
     public void setData(int row){
@@ -48,4 +52,16 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         }
         return R.drawable.image0;
     }
+
+    @Override
+    public void onClick(View v) {
+        TextView clickedName=v.findViewById(R.id.textView1);
+
+        Toast.makeText(v.getContext(),clickedName.getText().toString(),Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(v.getContext(), NoteActivity.class);
+        intent.putExtra("SendedData",clickedName.getText().toString());
+        v.getContext().startActivity(intent);
+    }
+
+
 }

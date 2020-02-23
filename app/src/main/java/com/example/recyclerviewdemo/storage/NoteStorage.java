@@ -24,4 +24,8 @@ public class NoteStorage {
         return list.size();
     }
 
+    public static void setNote(String headLine, String description){
+        list.add(new Note(headLine,description));
+    }
+
 }
