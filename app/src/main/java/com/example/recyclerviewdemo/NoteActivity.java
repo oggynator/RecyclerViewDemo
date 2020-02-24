@@ -19,6 +19,5 @@ public class NoteActivity extends AppCompatActivity {
         editText.setText(getIntent().getStringExtra("SendedData"));
         editText2.setText(getIntent().getStringExtra("SendedData2"));
 
-
     }
 }

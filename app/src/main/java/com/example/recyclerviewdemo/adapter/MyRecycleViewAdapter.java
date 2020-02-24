@@ -39,6 +39,7 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.setData(position);
+
         //holder.textView.setText(list.get(position)); //bind data to one row in the view
        // int[] res = {R.drawable.image0,R.drawable.image1, R.drawable.image2, R.drawable.image3, R.drawable.image4, R.drawable.image5, R.drawable.image6 , R.drawable.image7 , R.drawable.image8};
         //int rndInt = random.nextInt(res .length);

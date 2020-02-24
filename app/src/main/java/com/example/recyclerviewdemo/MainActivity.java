@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.example.recyclerviewdemo.Model.Note;
 import com.example.recyclerviewdemo.adapter.MyRecycleViewAdapter;
+import com.example.recyclerviewdemo.storage.FileStorage;
 import com.example.recyclerviewdemo.storage.NoteStorage;
 
 import java.util.ArrayList;
@@ -23,12 +24,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        NoteStorage.setFileStorage(new FileStorage(this));
         recyclerView =findViewById(R.id.recycleView1);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new MyRecycleViewAdapter());
 
     }
+
+
 
     public void newNote (View view){
         Intent intent = new Intent(this, AddActivity.class);

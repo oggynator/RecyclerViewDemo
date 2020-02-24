@@ -1,7 +1,10 @@
 package com.example.recyclerviewdemo.Model;
 
-public class Note {
+import java.io.Serializable;
 
+public class Note implements Serializable {
+
+    static final long serialVersionUID = 42L;
     private String headline;
     private String description;
 
