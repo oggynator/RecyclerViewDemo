@@ -40,3 +40,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+//TODO: send kun rownumber med fra Viewholder  til Noteactivy, byg noteacivaity ud fra rownumber og notestorage.getnote. På den måde kan man også bare ændre den note.
